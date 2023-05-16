@@ -1,23 +1,18 @@
-package lab3;
+package laba32;
 public class Main {
     public static void main(String[] args) {
-        // Створюємо масив типу базового класу
-        Organization[] organizations = new Organization[3];
+        Function[] functions = new Function[4];
+        functions[0] = new Ellipse(2, 4);
+        functions[1] = new Ellipse(3, 6);
+        functions[2] = new Hyperbola(2, 4);
+        functions[3] = new Hyperbola(3, 6);
 
-        // Створюємо об'єкти для кожного класу і додаємо їх до масиву
-        InsuranceCompany insuranceCompany = new InsuranceCompany("AIG", "New York", 500);
-        organizations[0] = insuranceCompany;
-
-        OilAndGasCompany oilAndGasCompany = new OilAndGasCompany("Shell", "London", "Oil");
-        organizations[1] = oilAndGasCompany;
-
-        Factory factory = new Factory("Toyota", "Japan", 10000);
-        organizations[2] = factory;
-
-        // Друк масиву з використанням методу Show()
-        for (Organization organization : organizations) {
-            organization.Show();
-            System.out.println();
+        for (Function function : functions) {
+            double x = 1.5;
+            double y = function.calculateValue(x);
+            function.printResult(x, y);
+            System.out.println(function.toString());
+            System.out.println(function.equals(new Ellipse(2, 4)));
         }
     }
 }
